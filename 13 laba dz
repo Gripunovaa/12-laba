@@ -1,0 +1,24 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+#define N 40
+// Составить программу, которая во введенной пользователемстроке удаляет первую букву каждого слова
+
+int main()
+{
+	
+	char stroka[100];
+	printf("Введите строку:\n");
+	fgets(stroka, N, stdin);
+	for (int i = 0; i < strlen(stroka); i++)
+	{
+		stroka[i] = stroka[i + 1];
+		if (stroka[i] == ' ')
+			for (int j = i + 1; j < strlen(stroka); j++)
+				stroka[j] = stroka[j + 1];
+	}
+	printf("%s", stroka);
+	return 0;
+}
